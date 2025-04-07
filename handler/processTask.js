@@ -8,7 +8,7 @@ module.exports.processTask = async (event) => {
             const { taskId } = message;
 
             // Simulate processing with 30% failure rate
-            if (Math.random() < 1) {
+            if (Math.random() < 0.3) {
                 throw new Error('Simulated processing failure');
             }
 
