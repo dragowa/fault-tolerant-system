@@ -7,7 +7,7 @@ service: fault-tolerant-system
 
 provider:
   name: aws
-  runtime: nodejs20.x  # Updated from nodejs14.x
+  runtime: nodejs20.x
   region: us-east-1
   iamRoleStatements:
     - Effect: Allow
@@ -24,6 +24,10 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
       Resource: !GetAtt TaskTable.Arn
+
+package:
+  patterns:
+    - handler/**
 
 functions:
   submitTask:
